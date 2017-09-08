@@ -1,11 +1,11 @@
-import router from '../routes/'
-import assert from 'assert'
+import app from '../app'
+// import expect from 'expect'
+import request from 'supertest'
 
 describe('router', () => {
-  describe('get(/)', () => {
-    it('', () => {
-      const msg = 'mocha'
-      assert.equal('Hello ' + msg, router.hello(msg))
+    describe('get(/)', () => {
+        it('200 OK', (done) => {
+            request(app).get('/').expect(200, done)
+        })
     })
-  })
 })
