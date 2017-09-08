@@ -1,7 +1,7 @@
 import Youtube from 'youtube-api'
 
 export class Sukoer {
-    constructor (clientId, clientSecret) {
+    constructor (clientId, clientSecret, redirectUrl) {
         this.clientId = clientId
         this.clientSecret = clientSecret
         this.oauth = Youtube.authenticate({
@@ -15,25 +15,22 @@ export class Sukoer {
             scope: ['https://www.googleapis.com/auth/youtube']
         })
     }
-    sukos (channel, max, tokens){
-        this.oauth.setCredentials(tokens);
-        const listReq=[]
+    sukos (channel, max, tokens) {
+        this.oauth.setCredentials(tokens)
+        const listReq = []
         Youtube.search.list({
             type: 'video',
             part: 'snippet',
-            pageToken: pageToken,
             maxResults: 50,
-            channelId: channel,
-        }, (err, data)=>{
-            if (err){
-                return console.log('error: ' + err);
+            channelId: channel
+        }, (err, data) => {
+            if (err) {
+                return console.log('error: ' + err)
             }
 
-            for (var x in data.items) {
-                listReq.push(data.items[x]);
+            for (let x in data.items) {
+                listReq.push(data.items[x])
             }
         })
-
-
     }
 }

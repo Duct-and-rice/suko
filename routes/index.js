@@ -7,9 +7,9 @@ router.get('/', function (req, res, next) {
 })
 
 router.post('/api/suko', function (req, res, next) {
-    const clientId = req.params.clientId
-    const clientSecret = req.params.clientSecret
-    const channel = req.params.channel
-    const max = req.params.max
+    // const clientId = req.params.clientId
+    // const clientSecret = req.params.clientSecret
+    // const channel = req.params.channel
+    // const max = req.params.max
 })
 export default router
